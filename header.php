@@ -1,5 +1,10 @@
 <?php
 var_dump($_SERVER);
+function amIActive($courant){
+    if($courant == $_SERVER['PHP_SELF']){
+        return '';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,10 +22,10 @@ var_dump($_SERVER);
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="index.php">Teletubbies</a></li>
-                <li class="active"><a href="kittens.php">Kittens</a></li>
-                <li><a href="ironmaiden.php">Iron Maiden</a></li>
-                <li><a href="16horsepower.php">16 Horse power</a></li>
+                <li<?=amIActive("index.php")?>><a href="index.php">Teletubbies</a></li>
+                <li<?=amIActive("kittens.php")?>><a href="kittens.php">Kittens</a></li>
+                <li<?=amIActive("ironmaiden.php")?>><a href="ironmaiden.php">Iron Maiden</a></li>
+                <li<?=amIActive("16horsepower.php")?>><a href="16horsepower.php">16 Horse power</a></li>
             </ul>
         </div>
     </div>
