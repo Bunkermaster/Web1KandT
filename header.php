@@ -1,8 +1,7 @@
 <?php
-var_dump($_SERVER);
 function amIActive($courant){
-    if($courant == $_SERVER['PHP_SELF']){
-        return '';
+    if('/'.$courant == $_SERVER['PHP_SELF']){
+        return ' class="active"';
     }
 }
 ?>
