@@ -17,11 +17,11 @@ function amIActive($courant){
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.php">WtfWeb</a>
+            <a class="navbar-brand" href="template.php">WtfWeb</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li<?=amIActive("index.php")?>><a href="index.php">Teletubbies</a></li>
+                <li<?=amIActive("template.php")?>><a href="template.php">Teletubbies</a></li>
                 <li<?=amIActive("kittens.php")?>><a href="kittens.php">Kittens</a></li>
                 <li<?=amIActive("ironmaiden.php")?>><a href="ironmaiden.php">Iron Maiden</a></li>
                 <li<?=amIActive("16horsepower.php")?>><a href="16horsepower.php">16 Horse power</a></li>

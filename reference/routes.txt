@@ -1,0 +1,7 @@
+GET /index.php | / teletubbies
+GET /kittens.php Chatons
+GET /ironmaiden.php Iron Maiden
+GET /16horsepower.php pif-paf
+
+GET /index.php?page=[slug] slug > page à afficher
+
