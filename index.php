@@ -18,6 +18,9 @@ $prep = $pdo->prepare($sql);
 $prep->bindValue(':slug', $slug, PDO::PARAM_STR);
 // execution X_x
 $prep->execute();
+if ($prep->errorCode() != '00000') {
+    die($prep->errorInfo()[2]);
+}
 // recuperation de l'enregistrement
 $row = $prep->fetch(PDO::FETCH_ASSOC);
 // si false, pas de donnees, sinon, j'ai une page!!!1
