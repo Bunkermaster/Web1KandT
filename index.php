@@ -23,5 +23,10 @@ if ($prep->errorCode() != '00000') {
 }
 // recuperation de l'enregistrement
 $row = $prep->fetch(PDO::FETCH_ASSOC);
+if ($row === false) {
+    header("HTTP/1.0 404 Not Found");
+    require_once "404.php";
+    exit;
+}
 // si false, pas de donnees, sinon, j'ai une page!!!1
-var_dump($row);
+require_once "template.php";

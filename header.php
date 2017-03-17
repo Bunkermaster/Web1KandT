@@ -1,9 +1,12 @@
 <?php
-function amIActive($courant){
-    if('/'.$courant == $_SERVER['PHP_SELF']){
+function amIActive($courant, $slug){
+    if($courant == $slug){
         return ' class="active"';
     }
 }
+$sql = "SELECT `slug`, `nav_title` FROM `page`;";
+$nav = $pdo->prepare($sql);
+$nav->execute();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,14 +20,13 @@ function amIActive($courant){
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="template.php">WtfWeb</a>
+            <a class="navbar-brand" href="index.php">WtfWeb</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li<?=amIActive("template.php")?>><a href="template.php">Teletubbies</a></li>
-                <li<?=amIActive("kittens.php")?>><a href="kittens.php">Kittens</a></li>
-                <li<?=amIActive("ironmaiden.php")?>><a href="ironmaiden.php">Iron Maiden</a></li>
-                <li<?=amIActive("16horsepower.php")?>><a href="16horsepower.php">16 Horse power</a></li>
+                <?php while($navRow = $nav->fetch(PDO::FETCH_ASSOC)): ?>
+                <li<?=amIActive($navRow['slug'], $slug)?>><a href="index.php?page=<?=$navRow['slug']?>"><?=$navRow['nav_title']?></a></li>
+                <?php endwhile;?>
             </ul>
         </div>
     </div>
