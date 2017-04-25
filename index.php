@@ -1,7 +1,11 @@
 <?php
+/**
+ * Affiche les pages, une par une, identifiees par leur slug
+ */
 // je me connecte
 require_once "connect.php";
 // je recupere la page demandee
+// si pas de page demandee, je prends la page par defaut
 if (isset($_GET['page'])) {
     // j'ai la page demandee dans l'url
     $slug = $_GET['page'];
