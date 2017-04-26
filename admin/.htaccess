@@ -1,0 +1,4 @@
+AuthName "Page d'administration protégée"
+AuthType Basic
+AuthUserFile "/Users/yann/Sites/webp2019/TeletubbiesAndKittens/admin/.htpasswd"
+Require valid-user
