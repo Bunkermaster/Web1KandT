@@ -10,10 +10,6 @@
  */
 function checkSlug($slug, $pdo)
 {
-    $slug = trim($slug);
-    if ($slug === '') {
-        return true;
-    }
     $sql = "SELECT
       count(*)
     FROM
@@ -29,6 +25,20 @@ function checkSlug($slug, $pdo)
         return true;
     }
     return false;
+}
+
+/**
+ * Verifier si le slug est vide (false) ou pas (true)
+ * @param $slug
+ * @return bool
+ */
+function slugPasVide($slug)
+{
+    $slug = trim($slug);
+    if ($slug === '') {
+        return false;
+    }
+    return true;
 }
 
 try {
