@@ -5,6 +5,7 @@
  * Date: 25/04/2017
  * Time: 11:36
  */
+// @todo rajouter un lien vers les pages du front office dans action
 //require_once "../connect.php";
 require_once dirname(__DIR__)."/connect.php";
 // requete de recuperation du compteur de pages en base
@@ -19,7 +20,6 @@ if ($stmt->errorCode() != '00000') {
 }
 // recuperation de la valeur du compteur
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
-var_dump($row); die();
 // $count contient le nombre d'enregistrements en base
 $count = $row['compteur'];
 // recuperation des pages
@@ -42,6 +42,7 @@ if ($stmt->errorCode() != '00000') {
 </head>
 <body>
 <h1>Liste des pages</h1>
+<p><a href="ajouter.php">+Ajout</a></p>
 <table>
     <tr>
         <th>ID</th>
@@ -52,8 +53,8 @@ if ($stmt->errorCode() != '00000') {
     <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
     <tr>
         <td><?= $row['id']?></td>
-        <td><?php echo $row['slug']?></td>
-        <td>n/a</td>
+        <td><?= $row['slug']?></td>
+        <td><a href="../index.php?page=<?=$row['slug']?>" target="_blank">Voir</a></td>
     </tr>
     <?php endwhile; ?>
     <?php else:?>
